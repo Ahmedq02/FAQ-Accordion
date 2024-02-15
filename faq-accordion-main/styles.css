@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('assets/fonts/WorkSans-VariableFont_wght.ttf') format('truetype') 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'WorkSans';
+}
+
+body {
+    min-height: 100vh;
+    background-image: 
+        url('assets/images/background-pattern-desktop.svg'),
+        linear-gradient(to bottom, hsl(275, 100%, 97%), hsl(275, 100%, 97%)); 
+    background-size: 100% 50%, 100% 50%; 
+    background-repeat: no-repeat; 
+    background-position: center top, center bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 70vh;
+    width: 30vw;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+h1 {
+    font-size: larger;
+}
+
+.title {
+    width: 100%;
+    flex: 50%;
+}
+
+ul {
+    width: 100%;
+    flex: 50%;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    /*display: none;*/
+}
