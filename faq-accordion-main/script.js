@@ -1,48 +1,55 @@
-const firstQ = document.getElementById("firstQ");
-const firstA = document.getElementById("firstA");
+// define the sections for the questions and answers
+const firstQA = document.getElementById("firstQA");
+const secondQA = document.getElementById("secondQA");
+const thirdQA = document.getElementById("thirdQA");
+const fourthQA = document.getElementById("fourthQA");
 
-const secondQ = document.getElementById("secondQ");
-const secondA = document.getElementById("secondA");
+const qASections = [firstQA, secondQA, thirdQA, fourthQA];
 
-const thirdQ = document.getElementById("thirdQ");
-const thirdA = document.getElementById("thirdA");
+function toggleQA(questionSection) {
+    const question = questionSection.querySelector(".toggle");
 
-const fourthQ = document.getElementById("fourthQ");
-const fourthA = document.getElementById("fourthA");
+    for (let i = 0; i < qASections.length; i++) {
 
-let questions = [firstQ, secondQ, thirdQ, fourthQ];
-let answers = [firstA, secondA, thirdA, fourthA];
+        let curQ = qASections[i].querySelector(".toggle");
+        let curA = qASections[i].querySelector("p");
+        let curMinus = qASections[i].querySelector(".minus");
+        let curPlus = qASections[i].querySelector(".plus");
 
-function toggleQA(question) {
-    for (let i = 0; i < questions.length; i++) {
-        let curQ = questions[i];
-        let curA = answers[i];
+        // modify the clicked question to reveal or hide
         if (question === curQ) {
             if (curA.style.display === "none") {
-                answers[i].style.display = "block"; 
+                curA.style.display = "block";
+                curMinus.style.display = "block";
+                curPlus.style.display = "none";
             }
             else {
-                answers[i].style.display = "none";
+                curA.style.display = "none";
+                curMinus.style.display = "none";
+                curPlus.style.display = "block";
             }
         }
+        // hide all other questions
         else {
-            answers[i].style.display = "none";
+            curA.style.display = "none";
+            curMinus.style.display = "none";
+            curPlus.style.display = "block";
         }
     }
 }
 
-firstQ.addEventListener("click", function() {
-    toggleQA(firstQ);
+firstQA.querySelector(".toggle").addEventListener("click", function() {
+    toggleQA(firstQA);
 });
 
-secondQ.addEventListener("click", function() {
-    toggleQA(secondQ);
+secondQA.querySelector(".toggle").addEventListener("click", function() {
+    toggleQA(secondQA);
 });
 
-thirdQ.addEventListener("click", function() {
-    toggleQA(thirdQ);
+thirdQA.querySelector(".toggle").addEventListener("click", function() {
+    toggleQA(thirdQA);
 });
 
-fourthQ.addEventListener("click", function() {
-    toggleQA(fourthQ);
+fourthQA.querySelector(".toggle").addEventListener("click", function() {
+    toggleQA(fourthQA);
 });
